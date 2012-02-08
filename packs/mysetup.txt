@@ -1,0 +1,5 @@
+node,0.6.10,node
+npm,1.1.0-3,node
+git,1.7.9-preview20120201,git
+nginx,1.1.14,nginx
+unxutils,latest,unxutils
