@@ -9,11 +9,11 @@ set PREV_PATH=%PATH%
 set PATH=%PATH%;utils
 echo %PATH%
 
-For %%B IN (node npm 7z unxutils git nginx) DO (
+for %%B in (node npm 7z unxutils git nginx) do (
   echo.
   echo %%B
   if not exist "./vendors/%%B" ( mkdir "./vendors/%%B" )
-  For /f %%A IN ('type versions\%%B.txt') DO (
+  for /f %%A in ('type versions\%%B.txt') do (
     echo %%A
     call scripts/dl-%%B.bat %%A
   )
