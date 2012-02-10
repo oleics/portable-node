@@ -33,6 +33,7 @@ for /R "data\packs" %%a in (*.txt) do (
     if not errorlevel 0 goto error
   )
 )
+goto end
 
 :error
 echo ERROR
