@@ -1,0 +1,7 @@
+home
+tmp
+usr
+usr/bin
+usr/local
+var
+www

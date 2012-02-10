@@ -1,34 +1,18 @@
-
-@echo Off
+@echo off
+setlocal EnableDelayedExpansion
 
 :conf
-set PREV_PATH=%PATH%
-set PATH=%PATH%;utils
-set VENDOR_DIR=.\vendors
-set DIST_DIR=.\dist
-set TMP_DIR=.\tmp
-set PACKS_DIR=.\data\packs
+call config.bat
 set MK_LIST=%*
-:: echo %PATH%
 
 :chkmklist
 if "%MK_LIST%"=="" (
   for /R "%PACKS_DIR%" %%a in (*.txt) do (
+    echo %%~na
     call:addToMkList %%~na
   )
 )
-
-:mkdirs
-rmdir /S /Q "%TMP_DIR%"
-if not exist "%TMP_DIR%" (
-  mkdir "%TMP_DIR%"
-  if %ERRORLEVEL% neq 0 goto error
-)
-
-if not exist "%DIST_DIR%" (
-  mkdir "%DIST_DIR%"
-  if %ERRORLEVEL% neq 0 goto error
-)
+goto mk
 
 :mk
 for %%a in (%MK_LIST%) do (
@@ -43,7 +27,7 @@ for %%a in (%MK_LIST%) do (
   )
   for /F "tokens=1,2,3 delims=," %%b in (%PACKS_DIR%\%%a.txt) do (
     echo %%b %%c %%d
-    xcopy /I /E /V /Y "%VENDOR_DIR%\%%b\%%c" "%TMP_DIR%\%%a\%%d"
+    7za x "%VENDORS_DIR%\%%b\%%c.7z" -o"%TMP_DIR%\%%a\%%d"
     if %ERRORLEVEL% neq 0 goto error
   )
   7za a -tzip "%DIST_DIR%\%%a.zip" "%TMP_DIR%\%%a\*" -mx9
@@ -58,6 +42,7 @@ goto end
 :: FUNCTIONS
 
 :addToMkList
+:: %1 - name of pack
 if "%MK_LIST%" equ "" (
   set MK_LIST=%1
 ) else (
@@ -68,5 +53,4 @@ goto:eof
 :: END OF FUNCTIONS
 
 :end
-set PATH=%PREV_PATH%
-echo.
+call .\scripts\utils\end.bat
