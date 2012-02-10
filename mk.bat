@@ -18,7 +18,7 @@ if not exist "%DIST_DIR%" (
   if not errorlevel 0 goto error
 )
 
-for /R "packs" %%a in (*.txt) do (
+for /R "data\packs" %%a in (*.txt) do (
   echo %%~na
   if exist "%DIST_DIR%/%%~na.zip" (
     del "%DIST_DIR:/=\%\%%~na.zip"
