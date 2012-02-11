@@ -34,7 +34,7 @@ goto pack
 
 :pack
 if exist "%BUILD_DIR%\%BUILD_NAME%.zip" ( del %BUILD_DIR%\%BUILD_NAME%.zip )
-7za a -tzip "%BUILD_DIR%\%BUILD_NAME%.zip" "%TMP_DIR%\*" ".\portable.cmd" -mx9 -mm=LZMA -mmt2
+7za a -tzip "%BUILD_DIR%\%BUILD_NAME%.zip" "%TMP_DIR%\*" ".\data\portable.cmd" -mx9 -mm=LZMA -mmt2
 if %ERRORLEVEL% neq 0 goto error
 goto end
 
