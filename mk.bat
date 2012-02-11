@@ -30,7 +30,8 @@ for %%a in (%MK_LIST%) do (
     7za x "%VENDORS_DIR%\%%b\%%c.7z" -o"%TMP_DIR%\%%a\%%d"
     if %ERRORLEVEL% neq 0 goto error
   )
-  7za a -tzip "%DIST_DIR%\%%a.zip" "%TMP_DIR%\%%a\*" -mx9
+  rem -mx9
+  7za a -tzip "%DIST_DIR%\%%a.zip" "%TMP_DIR%\%%a\*"
   if %ERRORLEVEL% neq 0 goto error
 )
 goto end

@@ -26,6 +26,12 @@ if not exist "%DIST_DIR%" (
   if %ERRORLEVEL% neq 0 goto error
 )
 
+:: create build directory
+if not exist "%BUILD_DIR%" (
+  mkdir "%BUILD_DIR%"
+  if %ERRORLEVEL% neq 0 goto error
+)
+
 :: create random temp directory
 if not exist "%TMP_DIR%" (
   mkdir "%TMP_DIR%"
