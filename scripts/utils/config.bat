@@ -7,7 +7,7 @@ set PACKS_DIR=.\data\packs
 set VERSIONS_DIR=.\data\versions
 set VENDORS_DIR=.\vendors
 set BUILD_DIR=.\build
-set STRUCTURE_FILE=%DATA_DIR%\structure.txt
+set STRUCTURE_FILE=%DATA_DIR%\layout.txt
 set TMP_DIR=.\tmp
 
 :: save path
