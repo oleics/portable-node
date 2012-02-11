@@ -25,7 +25,7 @@ for %%a in (%DL_LIST%) do (
           mkdir "%VENDORS_DIR%\%%a\%%b"
           if %ERRORLEVEL% neq 0 goto error
         )
-        call scripts\dl-%%a.bat %%c %VENDORS_DIR%\%%a\%%b
+        call scripts\dl\%%a.bat %%c %VENDORS_DIR%\%%a\%%b
         if %ERRORLEVEL% neq 0 goto error
         7za a -t7z "%VENDORS_DIR%\%%a\%%b.7z" "%VENDORS_DIR%\%%a\%%b\*"
         if %ERRORLEVEL% neq 0 goto error
