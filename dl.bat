@@ -27,7 +27,6 @@ for %%a in (%DL_LIST%) do (
         )
         call scripts\dl-%%a.bat %%c %VENDORS_DIR%\%%a\%%b
         if %ERRORLEVEL% neq 0 goto error
-        rem -mx9 -ms -mmt2
         7za a -t7z "%VENDORS_DIR%\%%a\%%b.7z" "%VENDORS_DIR%\%%a\%%b\*"
         if %ERRORLEVEL% neq 0 goto error
         rmdir /S /Q "%VENDORS_DIR%\%%a\%%b"
