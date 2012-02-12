@@ -2,7 +2,7 @@
 setlocal EnableDelayedExpansion
 
 :conf
-call config.bat
+call .\scripts\utils\config.bat
 set MK_LIST=%*
 
 :chkmklist

@@ -1,7 +1,7 @@
 @echo off
 
 :config
-call config.bat
+call .\scripts\utils\config.bat
 set DL_LIST=%*
 
 :chkdllist
